@@ -15,6 +15,9 @@ app.MapPost("/people", (IPeopleService service, Person person) =>
         ? Results.ValidationProblem(errors) 
         : Results.Ok(service.Create(person)));
 
+app.MapGet("/people", (IPeopleService service) => 
+    Results.Ok(service.GetAll()));
+
 app.Run();
 
 public partial class Program { }
